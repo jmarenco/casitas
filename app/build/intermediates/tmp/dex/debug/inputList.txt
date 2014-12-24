@@ -1,5 +1,5 @@
-/home/jmarenco/AndroidStudioProjects/MyFirstApp/app/build/intermediates/classes/debug
-/home/jmarenco/AndroidStudioProjects/MyFirstApp/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-53d1a18a7b69ca55a8f696f200b9e63b6aaf498b.jar
-/home/jmarenco/AndroidStudioProjects/MyFirstApp/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-4484c7cd29a47c70b6653737b1c1a4d365c34c72.jar
-/home/jmarenco/AndroidStudioProjects/MyFirstApp/app/build/intermediates/pre-dexed/debug/classes-34056f3f2874280387b7345d56bcc734b11e7ba6.jar
-/home/jmarenco/AndroidStudioProjects/MyFirstApp/app/build/intermediates/pre-dexed/debug/classes-df32e484add9b40365ecb9dc01bd4c7d6ddb7dbc.jar
+/home/jmarenco/AndroidStudioProjects/Casitas/svn/trunk/app/build/intermediates/classes/debug
+/home/jmarenco/AndroidStudioProjects/Casitas/svn/trunk/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-53d1a18a7b69ca55a8f696f200b9e63b6aaf498b.jar
+/home/jmarenco/AndroidStudioProjects/Casitas/svn/trunk/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-61e2340ed90e24319f03c84a75fb93c758e2df59.jar
+/home/jmarenco/AndroidStudioProjects/Casitas/svn/trunk/app/build/intermediates/pre-dexed/debug/classes-585ba802d209b1b4e6cea96c85f39052a3cc82ce.jar
+/home/jmarenco/AndroidStudioProjects/Casitas/svn/trunk/app/build/intermediates/pre-dexed/debug/classes-7c9ecbe71f5bb1e169e3c753ef60411b75aa9523.jar
