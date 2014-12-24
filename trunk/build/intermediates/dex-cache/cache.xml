@@ -2,6 +2,20 @@
 <items version="2" >
 
     <item
+        jar="/home/jmarenco/AndroidStudioProjects/Casitas/svn/trunk/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/home/jmarenco/AndroidStudioProjects/Casitas/svn/trunk/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-61e2340ed90e24319f03c84a75fb93c758e2df59.jar" />
+    </item>
+    <item
+        jar="/home/jmarenco/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="/home/jmarenco/AndroidStudioProjects/MyFirstApp/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-53d1a18a7b69ca55a8f696f200b9e63b6aaf498b.jar" />
+    </item>
+    <item
         jar="/home/jmarenco/AndroidStudioProjects/MyFirstApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -16,6 +30,13 @@
         <dex dex="/home/jmarenco/AndroidStudioProjects/MyFirstApp/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-4484c7cd29a47c70b6653737b1c1a4d365c34c72.jar" />
     </item>
     <item
+        jar="/home/jmarenco/AndroidStudioProjects/Casitas/svn/trunk/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/home/jmarenco/AndroidStudioProjects/Casitas/svn/trunk/app/build/intermediates/pre-dexed/debug/classes-585ba802d209b1b4e6cea96c85f39052a3cc82ce.jar" />
+    </item>
+    <item
         jar="/home/jmarenco/AndroidStudioProjects/MyFirstApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -23,11 +44,11 @@
         <dex dex="/home/jmarenco/AndroidStudioProjects/MyFirstApp/app/build/intermediates/pre-dexed/debug/classes-df32e484add9b40365ecb9dc01bd4c7d6ddb7dbc.jar" />
     </item>
     <item
-        jar="/home/jmarenco/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
+        jar="/home/jmarenco/AndroidStudioProjects/Casitas/svn/trunk/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/home/jmarenco/AndroidStudioProjects/MyFirstApp/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-53d1a18a7b69ca55a8f696f200b9e63b6aaf498b.jar" />
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/home/jmarenco/AndroidStudioProjects/Casitas/svn/trunk/app/build/intermediates/pre-dexed/debug/classes-7c9ecbe71f5bb1e169e3c753ef60411b75aa9523.jar" />
     </item>
 
 </items>
