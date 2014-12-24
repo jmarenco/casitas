@@ -40,7 +40,8 @@ public class MainActivity extends Activity
 
         bitmap = Bitmap.createBitmap((int) dw, (int) dh, Bitmap.Config.ARGB_8888);
         canvas = new Canvas(bitmap);
-        paint.setColor(Color.GREEN);
+        paint.setColor(Color.BLUE);
+        paint.setStrokeWidth(3);
 
         imageView = new ImageView(MainActivity.this);
         imageView.setId(R.id.image_id);
@@ -97,7 +98,6 @@ public class MainActivity extends Activity
                 }
                 else if (event.getAction() == MotionEvent.ACTION_MOVE)
                 {
-                    paint.setStrokeWidth(3);
                     canvas.drawLine(downx, downy, x, y, paint);
                     imageView.invalidate();
 
@@ -108,7 +108,6 @@ public class MainActivity extends Activity
                 }
                 else if (event.getAction() == MotionEvent.ACTION_UP)
                 {
-                    paint.setStrokeWidth(3);
                     canvas.drawLine(downx, downy, x, y, paint);
                     imageView.invalidate();
 
@@ -139,7 +138,7 @@ public class MainActivity extends Activity
     {
         ImageView imagen = new ImageView(MainActivity.this);
         imagen.setId(R.id.image_id);
-        imagen.setImageResource(R.drawable.ic_launcher);
+        imagen.setImageResource(R.drawable.haunted_house);
 //        imageView.setLeft((int)x);
 //        imageView.setTop((int)y);
 
