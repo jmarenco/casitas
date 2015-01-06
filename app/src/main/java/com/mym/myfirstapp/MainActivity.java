@@ -18,6 +18,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mym.myfirstapp.mvc.Controller;
+import com.mym.myfirstapp.mvc.Vista;
+
 public class MainActivity extends Activity
 {
     /** Called when the activity is first created. */
@@ -25,6 +28,10 @@ public class MainActivity extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        // Creamos el controller y la vista
+        controller = new Controller(this);
+        vista = new Vista(controller);
 
         // Creamos el relative layout
         layout = new RelativeLayout(MainActivity.this);
@@ -59,18 +66,12 @@ public class MainActivity extends Activity
         textView.setLayoutParams(textViewLayoutParams);
         layout.addView(textView);
 
-        // Checkbox de configuracion
-        checkBox = new CheckBox(MainActivity.this);
-        checkBox.setId(R.id.checkbox_id);
-        checkBox.setText("Configuracion");
-
-        LayoutParams checkBoxLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        checkBox.setLayoutParams(checkBoxLayoutParams);
-        layout.addView(checkBox);
-
         // Seteamos el layout principal
         setContentView(layout);
         layout.setOnClickListener(viewOnClickListener);
+
+        // Muestra el nivel
+        vista.inicializar();
 
         // Touch listener
         layout.setOnTouchListener(new View.OnTouchListener()
@@ -78,16 +79,9 @@ public class MainActivity extends Activity
             @Override
             public boolean onTouch(View v, MotionEvent event)
             {
+
                 x = event.getX();
                 y = event.getY();
-
-                if( checkBox.isChecked() == true )
-                {
-                    if (event.getAction() == MotionEvent.ACTION_DOWN)
-                        crearImagen();
-
-                    return true;
-                }
 
                 if (event.getAction() == MotionEvent.ACTION_DOWN)
                 {
@@ -126,21 +120,21 @@ public class MainActivity extends Activity
     private float downx;
     private float downy;
 
+    private Controller controller;
+    private Vista vista;
     private RelativeLayout layout;
     private TextView textView;
     private Bitmap bitmap;
     private Canvas canvas;
     private final Paint paint = new Paint();
     private ImageView imageView;
-    private CheckBox checkBox;
 
-    private void crearImagen()
+    public void crearImagen(int id, double x, double y)
     {
         ImageView imagen = new ImageView(MainActivity.this);
         imagen.setId(R.id.image_id);
-        imagen.setImageResource(R.drawable.casita);
-//        imageView.setLeft((int)x);
-//        imageView.setTop((int)y);
+        imagen.setImageResource(id);
+//        imagen.setImageResource(R.drawable.casita);
 
         RelativeLayout.LayoutParams imageViewLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         imageViewLayoutParams.setMargins((int)x, (int)y, 0, 0);
