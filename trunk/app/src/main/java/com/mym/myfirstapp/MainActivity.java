@@ -138,7 +138,7 @@ public class MainActivity extends Activity
     {
         ImageView imagen = new ImageView(MainActivity.this);
         imagen.setId(R.id.image_id);
-        imagen.setImageResource(R.drawable.haunted_house);
+        imagen.setImageResource(R.drawable.casita);
 //        imageView.setLeft((int)x);
 //        imageView.setTop((int)y);
 
