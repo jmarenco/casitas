@@ -28,4 +28,8 @@ public class Nivel
     {
         _empresas.add(empresa);
     }
+
+    // Getters
+    public ArrayList<Casita> getCasitas() { return _casitas; }
+    public ArrayList<Empresa> getEmpresas() { return _empresas; }
 }
