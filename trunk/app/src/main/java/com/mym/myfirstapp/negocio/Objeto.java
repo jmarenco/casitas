@@ -22,4 +22,6 @@ public class Objeto
     {
         return _y;
     }
+    public double getAncho() { return 60; }
+    public double getAltura() { return 60; }
 }
