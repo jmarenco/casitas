@@ -29,12 +29,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="2ca8723e-6a6d-43c0-b2a3-d432f7d608ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/mvc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/mvc/Controller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/mvc/Vista.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Nivel.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Nivel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mym/myfirstapp/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mym/myfirstapp/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Objeto.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Objeto.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/mvc/Vista.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/mvc/Vista.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="My First App.iws" />
@@ -66,8 +64,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1680" max-vertical-offset="2250">
-              <caret line="123" column="24" selection-start-line="123" selection-start-column="24" selection-end-line="123" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="422" max-vertical-offset="2400">
+              <caret line="44" column="66" selection-start-line="44" selection-start-column="66" selection-end-line="44" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,10 +76,14 @@
       <file leaf-file-name="Vista.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/mvc/Vista.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25240386" vertical-offset="165" max-vertical-offset="645">
-              <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.5673077" vertical-offset="454" max-vertical-offset="975">
+              <caret line="46" column="83" selection-start-line="46" selection-start-column="83" selection-end-line="46" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1503#1504#0" expanded="true" />
+                <element signature="e#1576#1577#0" expanded="true" />
+                <element signature="e#1618#1619#0" expanded="true" />
+                <element signature="e#1693#1694#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,8 +92,23 @@
       <file leaf-file-name="Nivel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Nivel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="49" max-vertical-offset="525">
-              <caret line="33" column="65" selection-start-line="33" selection-start-column="65" selection-end-line="33" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="559" max-vertical-offset="1035">
+              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding>
+                <element signature="e#864#865#0" expanded="true" />
+                <element signature="e#895#896#0" expanded="true" />
+                <element signature="e#945#946#0" expanded="true" />
+                <element signature="e#977#978#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Objeto.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Objeto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+              <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -1088,13 +1105,13 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/ids.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Objeto.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Empresa.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Casita.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/NivelFactory.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/mvc/View.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/mvc/Controller.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Objeto.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Nivel.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/mvc/Vista.java" />
       </list>
@@ -1607,7 +1624,11 @@
       <created>1420511085800</created>
       <updated>1420511085800</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Vista con coordenadas absolutas">
+      <created>1420512082051</created>
+      <updated>1420512082051</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1646,7 +1667,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.50075644" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1989,19 +2010,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Objeto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54086536" vertical-offset="0" max-vertical-offset="465">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding>
-            <element signature="e#268#269#0" expanded="true" />
-            <element signature="e#293#294#0" expanded="true" />
-            <element signature="e#324#325#0" expanded="true" />
-            <element signature="e#349#350#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Empresa.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
@@ -2029,30 +2037,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Nivel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="49" max-vertical-offset="525">
-          <caret line="33" column="65" selection-start-line="33" selection-start-column="65" selection-end-line="33" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1545" max-vertical-offset="2250">
-          <caret line="123" column="24" selection-start-line="123" selection-start-column="24" selection-end-line="123" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="422" max-vertical-offset="2400">
+          <caret line="44" column="66" selection-start-line="44" selection-start-column="66" selection-end-line="44" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Objeto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/negocio/Nivel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="559" max-vertical-offset="1035">
+          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding>
+            <element signature="e#864#865#0" expanded="true" />
+            <element signature="e#895#896#0" expanded="true" />
+            <element signature="e#945#946#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mym/myfirstapp/mvc/Vista.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25240386" vertical-offset="165" max-vertical-offset="645">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.5673077" vertical-offset="454" max-vertical-offset="975">
+          <caret line="46" column="83" selection-start-line="46" selection-start-column="83" selection-end-line="46" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1503#1504#0" expanded="true" />
+            <element signature="e#1576#1577#0" expanded="true" />
+            <element signature="e#1618#1619#0" expanded="true" />
+            <element signature="e#1693#1694#0" expanded="true" />
           </folding>
         </state>
       </provider>

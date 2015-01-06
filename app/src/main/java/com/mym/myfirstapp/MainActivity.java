@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.MotionEvent;
@@ -41,11 +42,7 @@ public class MainActivity extends Activity
         layout.setLayoutParams(layoutParams);
 
         // Creamos un canvas para dibujar
-        Display currentDisplay = getWindowManager().getDefaultDisplay();
-        float dw = currentDisplay.getWidth();
-        float dh = currentDisplay.getHeight();
-
-        bitmap = Bitmap.createBitmap((int) dw, (int) dh, Bitmap.Config.ARGB_8888);
+        bitmap = Bitmap.createBitmap((int)getAnchoDisplay(), (int)getAlturaDisplay(), Bitmap.Config.ARGB_8888);
         canvas = new Canvas(bitmap);
         paint.setColor(Color.BLUE);
         paint.setStrokeWidth(3);
@@ -129,6 +126,19 @@ public class MainActivity extends Activity
     private final Paint paint = new Paint();
     private ImageView imageView;
 
+    // Ancho y alto del display
+    public double getAnchoDisplay()
+    {
+        Display currentDisplay = getWindowManager().getDefaultDisplay();
+        return currentDisplay.getWidth();
+    }
+    public double getAlturaDisplay()
+    {
+        Display currentDisplay = getWindowManager().getDefaultDisplay();
+        return currentDisplay.getHeight();
+    }
+
+    // Agrega una imagen
     public void crearImagen(int id, double x, double y)
     {
         ImageView imagen = new ImageView(MainActivity.this);
