@@ -1,6 +1,7 @@
 package com.mym.myfirstapp.mvc;
 
 import com.mym.myfirstapp.MainActivity;
+import com.mym.myfirstapp.negocio.Empresa;
 import com.mym.myfirstapp.negocio.Nivel;
 import com.mym.myfirstapp.negocio.NivelFactory;
 
@@ -14,6 +15,13 @@ public class Controller
 
     // Vista
     private Vista _vista;
+
+    // Empresa seleccionada
+    private Empresa _seleccionada = null;
+
+    // Punto del último evento
+    private float _lastx;
+    private float _lasty;
 
     // Constructor
     public Controller(MainActivity activity)
@@ -36,5 +44,31 @@ public class Controller
     public void setVista(Vista vista)
     {
         _vista = vista;
+    }
+
+    // Acciones
+    public void inicioDrag(float x, float y)
+    {
+        _seleccionada = _nivel.getEmpresa(_vista.pointX(x), _vista.pointY(y));
+        _lastx = _seleccionada != null ? x : 0;
+        _lasty = _seleccionada != null ? y : 0;
+    }
+    public void drag(float x, float y)
+    {
+        if( _seleccionada != null )
+        {
+            _vista.dibujar(_lastx, _lasty, x, y);
+            _lastx = x;
+            _lasty = y;
+        }
+    }
+    public void finDrag(float x, float y)
+    {
+        if( _seleccionada != null )
+            _vista.dibujar(_lastx, _lasty, x, y);
+
+        _seleccionada = null;
+        _lastx = 0;
+        _lasty = 0;
     }
 }

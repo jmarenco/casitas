@@ -24,4 +24,10 @@ public class Objeto
     }
     public double getAncho() { return 60; }
     public double getAltura() { return 60; }
+
+    // Determina si contiene al punto especificado
+    public boolean contiene(double x, double y)
+    {
+        return getX() <= x && x <= getX() + getAncho() && getY() <= y && y <= getY() + getAltura();
+    }
 }

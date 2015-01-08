@@ -44,8 +44,6 @@ public class MainActivity extends Activity
         // Creamos un canvas para dibujar
         bitmap = Bitmap.createBitmap((int)getAnchoDisplay(), (int)getAlturaDisplay(), Bitmap.Config.ARGB_8888);
         canvas = new Canvas(bitmap);
-        paint.setColor(Color.BLUE);
-        paint.setStrokeWidth(3);
 
         imageView = new ImageView(MainActivity.this);
         imageView.setId(R.id.image_id);
@@ -54,6 +52,7 @@ public class MainActivity extends Activity
         imageView.setLayoutParams(imageViewLayoutParams);
         imageView.setImageBitmap(bitmap);
         layout.addView(imageView);
+        vista.setCanvas(canvas, imageView);
 
         // Creamos un TextView auxiliar
         textView = new TextView(MainActivity.this);
@@ -76,46 +75,20 @@ public class MainActivity extends Activity
             @Override
             public boolean onTouch(View v, MotionEvent event)
             {
-
-                x = event.getX();
-                y = event.getY();
+                float x = event.getX();
+                float y = event.getY();
 
                 if (event.getAction() == MotionEvent.ACTION_DOWN)
-                {
-                    downx = x;
-                    downy = y;
-
-                    textView.setText("Touch coordinates : " + Float.toString(x) + "x" + Float.toString(y));
-                }
+                    controller.inicioDrag(x, y);
                 else if (event.getAction() == MotionEvent.ACTION_MOVE)
-                {
-                    canvas.drawLine(downx, downy, x, y, paint);
-                    imageView.invalidate();
-
-                    downx = x;
-                    downy = y;
-
-                    textView.setText("Move to : " + Float.toString(x) + "x" + Float.toString(y));
-                }
+                    controller.drag(x, y);
                 else if (event.getAction() == MotionEvent.ACTION_UP)
-                {
-                    canvas.drawLine(downx, downy, x, y, paint);
-                    imageView.invalidate();
+                    controller.finDrag(x, y);
 
-                    downx = 0;
-                    downy = 0;
-
-                    textView.setText("Up in : " + Float.toString(x) + "x" + Float.toString(y));
-                }
                 return true;
             }
         });
     }
-
-    private float x;
-    private float y;
-    private float downx;
-    private float downy;
 
     private Controller controller;
     private Vista vista;

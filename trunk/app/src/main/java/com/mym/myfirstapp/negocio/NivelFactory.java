@@ -7,7 +7,7 @@ public class NivelFactory
         Nivel ret = new Nivel(1);
 
         ret.addEmpresa(new Empresa(Empresa.Tipo.Luz, 20, 20));
-        ret.addEmpresa(new Empresa(Empresa.Tipo.Gas, 300, 500));
+        ret.addEmpresa(new Empresa(Empresa.Tipo.Gas, 200, 90));
         ret.addCasita(construirCasita(60, 70, "LG"));
         ret.addCasita(construirCasita(160, 170, "LG"));
         ret.addCasita(construirCasita(50, 240, "G"));

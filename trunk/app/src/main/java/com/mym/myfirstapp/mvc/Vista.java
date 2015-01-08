@@ -1,5 +1,10 @@
 package com.mym.myfirstapp.mvc;
 
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.widget.ImageView;
+
 import com.mym.myfirstapp.MainActivity;
 import com.mym.myfirstapp.R;
 import com.mym.myfirstapp.negocio.Casita;
@@ -12,6 +17,11 @@ public class Vista
     // Activity principal y controller
     private MainActivity _activity;
     private Controller _controller;
+
+    // Canvas donde se dibuja
+    private Canvas _canvas;
+    private ImageView _imageView;
+    private Paint _paint;
 
     // Ancho y altura del display y del nivel
     private double _anchoDisplay;
@@ -37,6 +47,17 @@ public class Vista
         _alturaNivel = _nivel.getAltura();
     }
 
+    // Setters
+    public void setCanvas(Canvas canvas, ImageView imageView)
+    {
+        _canvas = canvas;
+        _imageView = imageView;
+
+        _paint = new Paint();
+        _paint.setColor(Color.BLUE);
+        _paint.setStrokeWidth(3);
+    }
+
     // Inicializa el nivel
     public void inicializar()
     {
@@ -55,5 +76,23 @@ public class Vista
     public int convY(Objeto objeto)
     {
         return (int)(objeto.getY() * _alturaDisplay / _alturaNivel);
+    }
+
+    // Convierte unidades en el display a unidades del modelo
+    public double pointX(float x)
+    {
+        return x * _anchoNivel / _anchoDisplay;
+
+    }
+    public double pointY(float y)
+    {
+        return y * _alturaNivel / _alturaDisplay;
+    }
+
+    // Dibuja una línea
+    public void dibujar(float x1, float y1, float x2, float y2)
+    {
+        _canvas.drawLine(x1, y1, x2, y2, _paint);
+        _imageView.invalidate();
     }
 }
