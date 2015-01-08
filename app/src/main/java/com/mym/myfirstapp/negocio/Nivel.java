@@ -60,4 +60,13 @@ public class Nivel
 
         return ret;
     }
+
+    // Empresa ubicada en el punto especificado
+    public Empresa getEmpresa(double x, double y)
+    {
+        for(Empresa empresa: _empresas) if( empresa.contiene(x,y) )
+            return empresa;
+
+        return null;
+    }
 }
