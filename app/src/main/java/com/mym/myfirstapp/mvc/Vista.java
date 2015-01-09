@@ -6,9 +6,6 @@ import android.graphics.Paint;
 import android.widget.ImageView;
 
 import com.mym.myfirstapp.MainActivity;
-import com.mym.myfirstapp.R;
-import com.mym.myfirstapp.negocio.Casita;
-import com.mym.myfirstapp.negocio.Empresa;
 import com.mym.myfirstapp.negocio.Nivel;
 import com.mym.myfirstapp.negocio.Objeto;
 
@@ -62,12 +59,7 @@ public class Vista
     public void inicializar()
     {
         for(Objeto objeto: _nivel.getObjetos())
-        {
-            ImageView imageView = _activity.crearImagen(objeto.getID(), convX(objeto), convY(objeto));
-
-            objeto.setDisplayX(convX(objeto));
-            objeto.setDisplayY(convY(objeto));
-        }
+            _activity.crearImagen(objeto.getID(), convX(objeto), convY(objeto));
     }
 
     // Convierte unidades del modelo a unidades en el display
