@@ -14,10 +14,6 @@ public class Objeto
     private double _ancho = 60;
     private double _altura = 60;
 
-    // Posicion y dimensiones en el display
-    private double _dispx;
-    private double _dispy;
-
     // Constructor
     public Objeto(int id, double x, double y)
     {
@@ -46,24 +42,6 @@ public class Objeto
     public double getAltura()
     {
         return _altura;
-    }
-
-    // Setters de la posición en el display
-    public void setDisplayX(double x)
-    {
-        _dispx = x;
-    }
-    public void setDisplayY(double y)
-    {
-        _dispy = y;
-    }
-    public void setAncho(double ancho)
-    {
-        _ancho = ancho;
-    }
-    public void setAltura(double altura)
-    {
-        _altura = altura;
     }
 
     // Determina si contiene al punto especificado
