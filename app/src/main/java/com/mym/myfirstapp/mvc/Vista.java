@@ -61,11 +61,13 @@ public class Vista
     // Inicializa el nivel
     public void inicializar()
     {
-        for(Empresa empresa: _nivel.getEmpresas())
-            _activity.crearImagen(R.drawable.industria60, convX(empresa), convY(empresa));
+        for(Objeto objeto: _nivel.getObjetos())
+        {
+            ImageView imageView = _activity.crearImagen(objeto.getID(), convX(objeto), convY(objeto));
 
-        for(Casita casita: _nivel.getCasitas())
-            _activity.crearImagen(R.drawable.casita, convX(casita), convY(casita));
+            objeto.setDisplayX(convX(objeto));
+            objeto.setDisplayY(convY(objeto));
+        }
     }
 
     // Convierte unidades del modelo a unidades en el display

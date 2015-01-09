@@ -1,8 +1,7 @@
 package com.mym.myfirstapp.negocio;
 
-/**
- * Created by jmarenco on 1/5/15.
- */
+import com.mym.myfirstapp.R;
+
 public class Empresa extends Objeto
 {
     // Tipo de las empresas
@@ -15,7 +14,7 @@ public class Empresa extends Objeto
     // Constructor
     public Empresa(Tipo tipo, double x, double y)
     {
-        super(x,y);
+        super(R.drawable.industria60, x, y);
         _tipo = tipo;
     }
 
