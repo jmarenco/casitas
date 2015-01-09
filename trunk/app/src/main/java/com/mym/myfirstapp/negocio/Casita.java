@@ -1,5 +1,7 @@
 package com.mym.myfirstapp.negocio;
 
+import com.mym.myfirstapp.R;
+
 public class Casita extends Objeto
 {
     // Servicios que requiere y servicios instalados
@@ -9,7 +11,7 @@ public class Casita extends Objeto
     // Constructor
     public Casita(double x, double y)
     {
-        super(x,y);
+        super(R.drawable.casita, x, y);
 
         _servicios = new boolean[Empresa.Tipo.values().length];
         _instalados = new boolean[Empresa.Tipo.values().length];

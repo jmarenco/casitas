@@ -42,6 +42,10 @@ public class Nivel
     {
         return _empresas;
     }
+    public ArrayList<Objeto> getObjetos()
+    {
+        return _objetos;
+    }
 
     // Ancho y altura del nivel
     public double getAncho()

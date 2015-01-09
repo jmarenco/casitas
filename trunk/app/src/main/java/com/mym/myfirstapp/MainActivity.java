@@ -3,21 +3,15 @@ package com.mym.myfirstapp;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mym.myfirstapp.mvc.Controller;
 import com.mym.myfirstapp.mvc.Vista;
@@ -32,7 +26,7 @@ public class MainActivity extends Activity
 
         // Creamos el controller y la vista
         controller = new Controller(this);
-        vista = new Vista(controller);
+        Vista vista = new Vista(controller);
 
         // Creamos el relative layout
         layout = new RelativeLayout(MainActivity.this);
@@ -42,10 +36,10 @@ public class MainActivity extends Activity
         layout.setLayoutParams(layoutParams);
 
         // Creamos un canvas para dibujar
-        bitmap = Bitmap.createBitmap((int)getAnchoDisplay(), (int)getAlturaDisplay(), Bitmap.Config.ARGB_8888);
-        canvas = new Canvas(bitmap);
+        Bitmap bitmap = Bitmap.createBitmap((int)getAnchoDisplay(), (int)getAlturaDisplay(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
 
-        imageView = new ImageView(MainActivity.this);
+        ImageView imageView = new ImageView(MainActivity.this);
         imageView.setId(R.id.image_id);
 
         RelativeLayout.LayoutParams imageViewLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
@@ -91,13 +85,8 @@ public class MainActivity extends Activity
     }
 
     private Controller controller;
-    private Vista vista;
     private RelativeLayout layout;
     private TextView textView;
-    private Bitmap bitmap;
-    private Canvas canvas;
-    private final Paint paint = new Paint();
-    private ImageView imageView;
 
     // Ancho y alto del display
     public double getAnchoDisplay()
@@ -112,19 +101,19 @@ public class MainActivity extends Activity
     }
 
     // Agrega una imagen
-    public void crearImagen(int id, double x, double y)
+    public ImageView crearImagen(int id, double x, double y)
     {
         ImageView imagen = new ImageView(MainActivity.this);
         imagen.setId(R.id.image_id);
         imagen.setImageResource(id);
-//        imagen.setImageResource(R.drawable.casita);
 
         RelativeLayout.LayoutParams imageViewLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         imageViewLayoutParams.setMargins((int)x, (int)y, 0, 0);
         imagen.setLayoutParams(imageViewLayoutParams);
+//        imagen.setOnClickListener(viewOnClickListener);
 
         layout.addView(imagen);
-//        imagen.setOnClickListener(viewOnClickListener);
+        return imagen;
     }
 
     OnClickListener viewOnClickListener = new OnClickListener() {
