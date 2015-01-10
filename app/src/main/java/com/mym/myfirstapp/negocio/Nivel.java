@@ -80,4 +80,13 @@ public class Nivel
 
         return null;
     }
+
+    // La primera empresa del tipo especificado
+    public Empresa getEmpresa(Empresa.Tipo tipo)
+    {
+        for(Empresa empresa: _empresas) if( empresa.getTipo() == tipo )
+            return empresa;
+
+        return null;
+    }
 }

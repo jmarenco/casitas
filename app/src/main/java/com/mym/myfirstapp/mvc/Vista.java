@@ -61,8 +61,19 @@ public class Vista
     // Inicializa el nivel
     public void inicializar()
     {
-        for(Objeto objeto: _nivel.getObjetos())
-            _activity.crearImagen(objeto.getID(), convX(objeto), convY(objeto));
+        for(Empresa empresa: _nivel.getEmpresas())
+        {
+            _activity.crearImagen(empresa.getID(), convX(empresa), convY(empresa));
+            _activity.crearImagen(empresa.getIdActivo(), convX(empresa)+30, convY(empresa)+30);
+        }
+
+        for(Casita casita: _nivel.getCasitas())
+        {
+            _activity.crearImagen(casita.getID(), convX(casita), convY(casita));
+
+            for(Empresa.Tipo tipo: casita.getNecesidades())
+                dibujarServicio(casita, _nivel.getEmpresa(tipo));
+        }
     }
 
     // Convierte unidades del modelo a unidades en el display
@@ -94,8 +105,11 @@ public class Vista
     }
 
     // Muestra el servicio conectado en la casita
-    public void dibujarServicio(Casita casita, Empresa seleccionada)
+    public void dibujarServicio(Casita casita, Empresa empresa)
     {
-        _activity.crearImagen(R.drawable.luz20, convX(casita)+30, convY(casita)+30);
+        int id = casita.getServicio(empresa.getTipo()) ? empresa.getIdActivo() : empresa.getIdInactivo();
+        int numero = casita.getNecesidades().indexOf(empresa.getTipo());
+
+        _activity.crearImagen(id, convX(casita) + 10 + numero * 12, convY(casita) + 30);
     }
 }

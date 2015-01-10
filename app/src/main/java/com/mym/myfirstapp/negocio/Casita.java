@@ -2,39 +2,62 @@ package com.mym.myfirstapp.negocio;
 
 import com.mym.myfirstapp.R;
 
+import java.util.ArrayList;
+
 public class Casita extends Objeto
 {
     // Servicios que requiere y servicios instalados
-    private boolean[] _necesidades;
-    private boolean[] _instalados;
+    private ArrayList<Empresa.Tipo> _necesidades;
+    private ArrayList<Boolean> _instalados;
 
     // Constructor
     public Casita(double x, double y)
     {
         super(R.drawable.casita, x, y);
 
-        _necesidades = new boolean[Empresa.Tipo.values().length];
-        _instalados = new boolean[Empresa.Tipo.values().length];
+        _necesidades = new ArrayList<Empresa.Tipo>();
+        _instalados = new ArrayList<Boolean>();
+    }
+
+    // Getters de servicios
+    public ArrayList<Empresa.Tipo> getNecesidades()
+    {
+        return _necesidades;
     }
 
     // Agrega y consulta un requerimiento de servicio
     public void setNecesidad(Empresa.Tipo servicio)
     {
-        _necesidades[servicio.ordinal()] = true;
+        if( _necesidades.contains(servicio) == false )
+        {
+            _necesidades.add(servicio);
+            _instalados.add(false);
+        }
     }
     public boolean getNecesidad(Empresa.Tipo servicio)
     {
-        return _necesidades[servicio.ordinal()];
+        if( _necesidades.contains(servicio) == false )
+            return false;
+
+        int indice = _necesidades.indexOf(servicio);
+        return !_instalados.get(indice);
     }
 
     // Agrega y consulta un servicio instalado
     public void setServicio(Empresa.Tipo servicio)
     {
-        _instalados[servicio.ordinal()] = true;
-        _necesidades[servicio.ordinal()] = false;
+        if( _necesidades.contains(servicio) )
+        {
+            int indice = _necesidades.indexOf(servicio);
+            _instalados.set(indice, true);
+        }
     }
     public boolean getServicio(Empresa.Tipo servicio)
     {
-        return _instalados[servicio.ordinal()];
+        if( _necesidades.contains(servicio) == false )
+            return false;
+
+        int indice = _necesidades.indexOf(servicio);
+        return _instalados.get(indice);
     }
 }
