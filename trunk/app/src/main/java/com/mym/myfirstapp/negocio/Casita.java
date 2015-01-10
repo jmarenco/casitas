@@ -5,7 +5,7 @@ import com.mym.myfirstapp.R;
 public class Casita extends Objeto
 {
     // Servicios que requiere y servicios instalados
-    private boolean[] _servicios;
+    private boolean[] _necesidades;
     private boolean[] _instalados;
 
     // Constructor
@@ -13,24 +13,25 @@ public class Casita extends Objeto
     {
         super(R.drawable.casita, x, y);
 
-        _servicios = new boolean[Empresa.Tipo.values().length];
+        _necesidades = new boolean[Empresa.Tipo.values().length];
         _instalados = new boolean[Empresa.Tipo.values().length];
     }
 
     // Agrega y consulta un requerimiento de servicio
     public void setNecesidad(Empresa.Tipo servicio)
     {
-        _servicios[servicio.ordinal()] = true;
+        _necesidades[servicio.ordinal()] = true;
     }
     public boolean getNecesidad(Empresa.Tipo servicio)
     {
-        return _servicios[servicio.ordinal()];
+        return _necesidades[servicio.ordinal()];
     }
 
     // Agrega y consulta un servicio instalado
     public void setServicio(Empresa.Tipo servicio)
     {
         _instalados[servicio.ordinal()] = true;
+        _necesidades[servicio.ordinal()] = false;
     }
     public boolean getServicio(Empresa.Tipo servicio)
     {
