@@ -1,6 +1,7 @@
 package com.mym.myfirstapp.mvc;
 
 import com.mym.myfirstapp.MainActivity;
+import com.mym.myfirstapp.negocio.Casita;
 import com.mym.myfirstapp.negocio.Empresa;
 import com.mym.myfirstapp.negocio.Nivel;
 import com.mym.myfirstapp.negocio.NivelFactory;
@@ -65,10 +66,25 @@ public class Controller
     public void finDrag(float x, float y)
     {
         if( _seleccionada != null )
+        {
             _vista.dibujar(_lastx, _lasty, x, y);
+            asignarServicio(x, y);
+        }
 
         _seleccionada = null;
         _lastx = 0;
         _lasty = 0;
+    }
+
+    // Si hay una casa en la ubicación actual, le asigna el servicio de la empresa seleccionada
+    private void asignarServicio(float x, float y)
+    {
+        Casita casita = _nivel.getCasita(_vista.pointX(x), _vista.pointY(y));
+
+        if( casita != null && casita.getNecesidad(_seleccionada.getTipo()) == true )
+        {
+            casita.setServicio(_seleccionada.getTipo());
+            _vista.dibujarServicio(casita, _seleccionada);
+        }
     }
 }

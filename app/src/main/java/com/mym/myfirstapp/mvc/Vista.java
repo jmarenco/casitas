@@ -6,6 +6,9 @@ import android.graphics.Paint;
 import android.widget.ImageView;
 
 import com.mym.myfirstapp.MainActivity;
+import com.mym.myfirstapp.R;
+import com.mym.myfirstapp.negocio.Casita;
+import com.mym.myfirstapp.negocio.Empresa;
 import com.mym.myfirstapp.negocio.Nivel;
 import com.mym.myfirstapp.negocio.Objeto;
 
@@ -88,5 +91,11 @@ public class Vista
     {
         _canvas.drawLine(x1, y1, x2, y2, _paint);
         _imageView.invalidate();
+    }
+
+    // Muestra el servicio conectado en la casita
+    public void dibujarServicio(Casita casita, Empresa seleccionada)
+    {
+        _activity.crearImagen(R.drawable.luz20, convX(casita)+30, convY(casita)+30);
     }
 }
