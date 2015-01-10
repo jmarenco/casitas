@@ -53,6 +53,8 @@ public class Controller
         _seleccionada = _nivel.getEmpresa(_vista.pointX(x), _vista.pointY(y));
         _lastx = _seleccionada != null ? x : 0;
         _lasty = _seleccionada != null ? y : 0;
+
+        System.out.println(" *** Inicio drag: " + x + ", " + y);
     }
     public void drag(float x, float y)
     {
