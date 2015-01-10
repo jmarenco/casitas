@@ -10,7 +10,7 @@ public class NivelFactory
         ret.addEmpresa(new Empresa(Empresa.Tipo.Gas, 200, 90));
         ret.addCasita(construirCasita(60, 70, "LG"));
         ret.addCasita(construirCasita(160, 170, "LG"));
-        ret.addCasita(construirCasita(50, 240, "G"));
+        ret.addCasita(construirCasita(50, 240, "LG"));
 
         return ret;
     }
