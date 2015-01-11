@@ -12,6 +12,9 @@ import com.mym.myfirstapp.negocio.Empresa;
 import com.mym.myfirstapp.negocio.Nivel;
 import com.mym.myfirstapp.negocio.Objeto;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Vista
 {
     // Activity principal y controller
@@ -32,6 +35,9 @@ public class Vista
     // Nivel actual
     private Nivel _nivel;
 
+    // Imagenes
+    private Map<Objeto, ImageView> _imagenes;
+
     // Constructor
     public Vista(Controller controller)
     {
@@ -43,8 +49,10 @@ public class Vista
 
         _anchoDisplay = _activity.getAnchoDisplay();
         _alturaDisplay = _activity.getAlturaDisplay();
-        _anchoNivel = _nivel.getAncho() + 30;
-        _alturaNivel = _nivel.getAltura() + 30;
+        _anchoNivel = _nivel.getAncho();
+        _alturaNivel = _nivel.getAltura();
+
+        _imagenes = new HashMap<Objeto, ImageView>();
     }
 
     // Setters
@@ -63,13 +71,16 @@ public class Vista
     {
         for(Empresa empresa: _nivel.getEmpresas())
         {
-            _activity.crearImagen(empresa.getID(), convX(empresa), convY(empresa));
+            ImageView imagen = _activity.crearImagen(empresa.getID(), convX(empresa), convY(empresa));
             _activity.crearImagen(empresa.getIdActivo(), convX(empresa)+30, convY(empresa)+30);
+
+            _imagenes.put(empresa, imagen);
         }
 
         for(Casita casita: _nivel.getCasitas())
         {
-            _activity.crearImagen(casita.getID(), convX(casita), convY(casita));
+            ImageView imagen = _activity.crearImagen(casita.getID(), convX(casita), convY(casita));
+            _imagenes.put(casita, imagen);
 
             for(Empresa.Tipo tipo: casita.getNecesidades())
                 dibujarServicio(casita, _nivel.getEmpresa(tipo));
@@ -111,6 +122,32 @@ public class Vista
         int numero = casita.getNecesidades().indexOf(empresa.getTipo());
 
         _activity.crearImagen(id, convX(casita) + 10 + numero * 12, convY(casita) + 30);
+    }
+
+    // Objeto que incluye al punto (en coordenadas del display)
+    public Objeto objetoSeleccionado(float x, float y)
+    {
+        for(Objeto objeto: _imagenes.keySet())
+        {
+            ImageView imagen = _imagenes.get(objeto);
+
+            if( imagen.getX() <= x && x <= imagen.getX() + imagen.getWidth() && imagen.getY() <= y && y <= imagen.getY() + imagen.getHeight())
+                return objeto;
+        }
+
+        return null;
+    }
+
+    // Empresa y casita que incluye al punto
+    public Empresa empresaSeleccionada(float x, float y)
+    {
+        Objeto ret = objetoSeleccionado(x,y);
+        return ret instanceof Empresa ? (Empresa)ret : null;
+    }
+    public Casita casitaSeleccionada(float x, float y)
+    {
+        Objeto ret = objetoSeleccionado(x,y);
+        return ret instanceof Casita ? (Casita)ret : null;
     }
 
     // Muestra el mensaje de nivel terminado
