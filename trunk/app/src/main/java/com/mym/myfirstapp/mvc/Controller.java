@@ -50,7 +50,7 @@ public class Controller
     // Acciones
     public void inicioDrag(float x, float y)
     {
-        _seleccionada = _vista.empresaSeleccionada(x,y); // _nivel.getEmpresa(_vista.pointX(x), _vista.pointY(y));
+        _seleccionada = _vista.empresaSeleccionada(x,y);
         _lastx = _seleccionada != null ? x : 0;
         _lasty = _seleccionada != null ? y : 0;
     }
@@ -67,7 +67,9 @@ public class Controller
     {
         if( _seleccionada != null )
         {
-            _vista.dibujar(_lastx, _lasty, x, y);
+            if( _vista.segmentoLibre(_lastx, _lasty, x, y) )
+                _vista.dibujar(_lastx, _lasty, x, y);
+
             asignarServicio(x, y);
 
             if( _nivel.terminado() )
@@ -82,7 +84,7 @@ public class Controller
     // Si hay una casa en la ubicación actual, le asigna el servicio de la empresa seleccionada
     private void asignarServicio(float x, float y)
     {
-        Casita casita = _vista.casitaSeleccionada(x,y); // _nivel.getCasita(_vista.pointX(x), _vista.pointY(y));
+        Casita casita = _vista.casitaSeleccionada(x, y);
 
         if( casita != null && casita.getNecesidad(_seleccionada.getTipo()) == true )
         {
