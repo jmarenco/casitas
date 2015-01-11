@@ -89,4 +89,13 @@ public class Nivel
 
         return null;
     }
+
+    // Informa si el nivel está terminado
+    public boolean terminado()
+    {
+        for(Casita casita: _casitas) if( casita.completa() == false )
+            return false;
+
+        return true;
+    }
 }

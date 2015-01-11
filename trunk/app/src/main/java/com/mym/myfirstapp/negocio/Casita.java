@@ -60,4 +60,13 @@ public class Casita extends Objeto
         int indice = _necesidades.indexOf(servicio);
         return _instalados.get(indice);
     }
+
+    // Informa si todas las necesidades están cubiertas
+    public boolean completa()
+    {
+        for(Boolean servicio: _instalados) if( servicio == false )
+            return false;
+
+        return true;
+    }
 }

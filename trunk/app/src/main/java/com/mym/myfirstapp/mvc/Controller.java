@@ -71,6 +71,9 @@ public class Controller
         {
             _vista.dibujar(_lastx, _lasty, x, y);
             asignarServicio(x, y);
+
+            if( _nivel.terminado() )
+                _vista.terminarNivel();
         }
 
         _seleccionada = null;
