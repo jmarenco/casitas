@@ -1,5 +1,7 @@
 package com.mym.myfirstapp.mvc;
 
+import android.annotation.TargetApi;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -22,6 +24,7 @@ public class Vista
     private Controller _controller;
 
     // Canvas donde se dibuja
+    private Bitmap _bitmap;
     private Canvas _canvas;
     private ImageView _imageView;
     private Paint _paint;
@@ -56,8 +59,9 @@ public class Vista
     }
 
     // Setters
-    public void setCanvas(Canvas canvas, ImageView imageView)
+    public void setCanvas(Bitmap bitmap, Canvas canvas, ImageView imageView)
     {
+        _bitmap = bitmap;
         _canvas = canvas;
         _imageView = imageView;
 
@@ -108,6 +112,38 @@ public class Vista
         return y * _alturaNivel / _alturaDisplay;
     }
 
+    // Informa si se puede dibujar el segmento sin cruzar un cable existente
+    public boolean segmentoLibre(float x1, float y1, float x2, float y2)
+    {
+        double distancia = Math.sqrt((x2-x1) * (x2-x1) + (y2-y1) * (y2-y1));
+
+        if( distancia < 1 )
+            return true;
+
+        if( distancia < 3 )
+            return pixelCableado(x2, y2);
+
+        for(double alfa=1/distancia; alfa<=1; alfa += 1/distancia)
+        {
+            double x = (1 - alfa) * x1 + alfa * x2;
+            double y = (1 - alfa) * y1 + alfa * y2;
+
+            if( pixelCableado(x,y) )
+                return false;
+        }
+
+        return true;
+    }
+
+    // Informa si el pixel está ocupado por un cable
+    public boolean pixelCableado(double x, double y)
+    {
+        if( x < 0 || x >= _bitmap.getWidth() || y < 0 || y >= _bitmap.getHeight() )
+            return true;
+
+        return _bitmap.getPixel((int) x, (int) y) != 0;
+    }
+
     // Dibuja una línea
     public void dibujar(float x1, float y1, float x2, float y2)
     {
@@ -121,10 +157,11 @@ public class Vista
         int id = casita.getServicio(empresa.getTipo()) ? empresa.getIdActivo() : empresa.getIdInactivo();
         int numero = casita.getNecesidades().indexOf(empresa.getTipo());
 
-        _activity.crearImagen(id, convX(casita) + 10 + numero * 12, convY(casita) + 30);
+        _activity.crearImagen(id, convX(casita) + 10 + numero * 12, convY(casita) + 35);
     }
 
     // Objeto que incluye al punto (en coordenadas del display)
+    @TargetApi(11)
     public Objeto objetoSeleccionado(float x, float y)
     {
         for(Objeto objeto: _imagenes.keySet())
@@ -146,7 +183,7 @@ public class Vista
     }
     public Casita casitaSeleccionada(float x, float y)
     {
-        Objeto ret = objetoSeleccionado(x,y);
+        Objeto ret = objetoSeleccionado(x, y);
         return ret instanceof Casita ? (Casita)ret : null;
     }
 
