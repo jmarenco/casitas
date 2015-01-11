@@ -56,7 +56,7 @@ public class Controller
     }
     public void drag(float x, float y)
     {
-        if( _seleccionada != null )
+        if( _seleccionada != null && _vista.segmentoLibre(_lastx, _lasty, x, y) )
         {
             _vista.dibujar(_lastx, _lasty, x, y);
             _lastx = x;

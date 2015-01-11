@@ -49,7 +49,7 @@ public class MainActivity extends Activity
         imageView.setLayoutParams(imageViewLayoutParams);
         imageView.setImageBitmap(bitmap);
         layout.addView(imageView);
-        vista.setCanvas(canvas, imageView);
+        vista.setCanvas(bitmap, canvas, imageView);
 
         // Creamos un TextView auxiliar
         textView = new TextView(MainActivity.this);
@@ -134,6 +134,6 @@ public class MainActivity extends Activity
     // Auxiliar para el debug
     public void mostrarTexto(String texto)
     {
-        textView.setText("Nivel terminado!");
+        textView.setText(texto);
     }
 }
