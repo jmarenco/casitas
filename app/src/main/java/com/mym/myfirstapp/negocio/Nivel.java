@@ -52,7 +52,7 @@ public class Nivel
     {
         double ret = 0;
         for(Objeto objeto: _objetos)
-            ret = Math.max(ret, objeto.getX() + objeto.getAncho());
+            ret = Math.max(ret, objeto.getX() + Objeto.margenX());
 
         return ret;
     }
@@ -60,25 +60,9 @@ public class Nivel
     {
         double ret = 0;
         for(Objeto objeto: _objetos)
-            ret = Math.max(ret, objeto.getY() + objeto.getAltura());
+            ret = Math.max(ret, objeto.getY() + Objeto.margenY());
 
         return ret;
-    }
-
-    // Empresa y casita ubicadas en el punto especificado
-    public Empresa getEmpresa(double x, double y)
-    {
-        for(Empresa empresa: _empresas) if( empresa.contiene(x,y) )
-            return empresa;
-
-        return null;
-    }
-    public Casita getCasita(double x, double y)
-    {
-        for(Casita casita: _casitas) if( casita.contiene(x,y) )
-            return casita;
-
-        return null;
     }
 
     // La primera empresa del tipo especificado
