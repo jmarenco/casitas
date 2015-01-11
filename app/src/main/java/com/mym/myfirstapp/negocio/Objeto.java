@@ -8,11 +8,11 @@ public class Objeto
     // ID de la imagen
     private int _id;
 
-    // Posicion y dimensiones virtuales de la imagen
+    // Posicion virtual y dimensiones reales de la imagen
     private double _x;
     private double _y;
-    private double _ancho = 60;
-    private double _altura = 60;
+    private double _ancho = 10; // TODO: Calcular a partir de la imagen!
+    private double _altura = 25;
 
     // Constructor
     public Objeto(int id, double x, double y)

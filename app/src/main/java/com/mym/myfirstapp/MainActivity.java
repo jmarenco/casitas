@@ -16,6 +16,9 @@ import android.widget.TextView;
 import com.mym.myfirstapp.mvc.Controller;
 import com.mym.myfirstapp.mvc.Vista;
 
+import java.text.DecimalFormat;
+import java.text.Format;
+
 public class MainActivity extends Activity
 {
     /** Called when the activity is first created. */
@@ -26,7 +29,7 @@ public class MainActivity extends Activity
 
         // Creamos el controller y la vista
         controller = new Controller(this);
-        Vista vista = new Vista(controller);
+        final Vista vista = new Vista(controller);
 
         // Creamos el relative layout
         layout = new RelativeLayout(MainActivity.this);
@@ -63,6 +66,8 @@ public class MainActivity extends Activity
         // Muestra el nivel
         vista.inicializar();
 
+        final Format format = new DecimalFormat("#.00");
+
         // Touch listener
         layout.setOnTouchListener(new View.OnTouchListener()
         {
@@ -71,6 +76,9 @@ public class MainActivity extends Activity
             {
                 float x = event.getX();
                 float y = event.getY();
+
+                textView.setText("Real: (" + format.format(x) + ", " + format.format(y) + ")" +
+                                 "- Virtual: (" + format.format(vista.pointX(x)) + ", " + format.format(vista.pointY(y)) + ")");
 
                 if (event.getAction() == MotionEvent.ACTION_DOWN)
                     controller.inicioDrag(x, y);
@@ -122,4 +130,10 @@ public class MainActivity extends Activity
         {
             textView.setText("ID: " + String.valueOf(v.getId()) + " clicked");
         }};
+
+    // Auxiliar para el debug
+    public void mostrarTexto(String texto)
+    {
+        textView.setText("Nivel terminado!");
+    }
 }

@@ -43,8 +43,8 @@ public class Vista
 
         _anchoDisplay = _activity.getAnchoDisplay();
         _alturaDisplay = _activity.getAlturaDisplay();
-        _anchoNivel = _nivel.getAncho();
-        _alturaNivel = _nivel.getAltura();
+        _anchoNivel = _nivel.getAncho() + 30;
+        _alturaNivel = _nivel.getAltura() + 30;
     }
 
     // Setters
@@ -111,5 +111,11 @@ public class Vista
         int numero = casita.getNecesidades().indexOf(empresa.getTipo());
 
         _activity.crearImagen(id, convX(casita) + 10 + numero * 12, convY(casita) + 30);
+    }
+
+    // Muestra el mensaje de nivel terminado
+    public void terminarNivel()
+    {
+        _activity.mostrarTexto("Nivel terminado!");
     }
 }
