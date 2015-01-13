@@ -40,7 +40,6 @@ public class MainActivity extends Activity
 
         // Creamos un canvas para dibujar
         Bitmap bitmap = Bitmap.createBitmap((int)getAnchoDisplay(), (int)getAlturaDisplay(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
 
         ImageView imageView = new ImageView(MainActivity.this);
         imageView.setId(R.id.image_id);
@@ -49,7 +48,7 @@ public class MainActivity extends Activity
         imageView.setLayoutParams(imageViewLayoutParams);
         imageView.setImageBitmap(bitmap);
         layout.addView(imageView);
-        vista.setCanvas(bitmap, canvas, imageView);
+        vista.setBitmap(bitmap, imageView);
 
         // Creamos un TextView auxiliar
         textView = new TextView(MainActivity.this);
