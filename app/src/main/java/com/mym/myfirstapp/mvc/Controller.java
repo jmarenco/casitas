@@ -57,6 +57,8 @@ public class Controller
         _lastx = _seleccionada != null ? x : 0;
         _lasty = _seleccionada != null ? y : 0;
         _largo = 0;
+
+        _vista.copiarBitmap();
     }
     public void drag(float x, float y)
     {
@@ -75,7 +77,8 @@ public class Controller
             if( _vista.segmentoLibre(_lastx, _lasty, x, y) )
                 _vista.dibujar(_lastx, _lasty, x, y);
 
-            asignarServicio(x, y);
+            if( asignarServicio(x, y) == false )
+                _vista.restaurarBitmap();
 
             if( _nivel.terminado() )
                 _vista.terminarNivel();
@@ -88,14 +91,19 @@ public class Controller
     }
 
     // Si hay una casa en la ubicación actual, le asigna el servicio de la empresa seleccionada
-    private void asignarServicio(float x, float y)
+    private boolean asignarServicio(float x, float y)
     {
+        boolean ret = false;
         Casita casita = _vista.casitaSeleccionada(x, y);
 
         if( casita != null && casita.getNecesidad(_seleccionada.getTipo()) == true )
         {
             casita.setServicio(_seleccionada.getTipo());
             _vista.dibujarServicio(casita, _seleccionada);
+
+            ret = true;
         }
+
+        return ret;
     }
 }

@@ -59,15 +59,33 @@ public class Vista
     }
 
     // Setters
-    public void setCanvas(Bitmap bitmap, Canvas canvas, ImageView imageView)
+    public void setBitmap(Bitmap bitmap, ImageView imageView)
     {
         _bitmap = bitmap;
-        _canvas = canvas;
+        _canvas = new Canvas(bitmap);
         _imageView = imageView;
 
         _paint = new Paint();
         _paint.setColor(Color.BLUE);
         _paint.setStrokeWidth(3);
+    }
+
+    // Copia del bitmap
+    private Bitmap _copiado;
+
+    // Saca una foto del bitmap
+    public void copiarBitmap()
+    {
+        _copiado = Bitmap.createBitmap(_bitmap);
+    }
+
+    // Restaura la foto del bitmap
+    public void restaurarBitmap()
+    {
+        _imageView.setImageBitmap(_copiado);
+        _bitmap = _copiado;
+        _canvas = new Canvas(_bitmap);
+        _copiado = null;
     }
 
     // Inicializa el nivel
@@ -105,7 +123,6 @@ public class Vista
     public double pointX(float x)
     {
         return x * _anchoNivel / _anchoDisplay;
-
     }
     public double pointY(float y)
     {
