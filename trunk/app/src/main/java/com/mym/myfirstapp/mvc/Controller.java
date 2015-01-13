@@ -24,6 +24,9 @@ public class Controller
     private float _lastx;
     private float _lasty;
 
+    // Longitud de la línea
+    private int _largo;
+
     // Constructor
     public Controller(MainActivity activity)
     {
@@ -53,14 +56,16 @@ public class Controller
         _seleccionada = _vista.empresaSeleccionada(x,y);
         _lastx = _seleccionada != null ? x : 0;
         _lasty = _seleccionada != null ? y : 0;
+        _largo = 0;
     }
     public void drag(float x, float y)
     {
-        if( _seleccionada != null && _vista.segmentoLibre(_lastx, _lasty, x, y) )
+        if( _seleccionada != null && (_largo < 20 || _vista.segmentoLibre(_lastx, _lasty, x, y)) )
         {
             _vista.dibujar(_lastx, _lasty, x, y);
             _lastx = x;
             _lasty = y;
+            _largo += 1;
         }
     }
     public void finDrag(float x, float y)
@@ -79,6 +84,7 @@ public class Controller
         _seleccionada = null;
         _lastx = 0;
         _lasty = 0;
+        _largo = 0;
     }
 
     // Si hay una casa en la ubicación actual, le asigna el servicio de la empresa seleccionada
