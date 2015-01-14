@@ -110,11 +110,11 @@ public class MainActivity extends Activity
     }
 
     // Agrega una imagen
-    public ImageView crearImagen(int id, double x, double y)
+    public ImageView crearImagen(int imageID, int resourceID, double x, double y)
     {
         ImageView imagen = new ImageView(MainActivity.this);
-        imagen.setId(R.id.image_id);
-        imagen.setImageResource(id);
+        imagen.setId(imageID);
+        imagen.setImageResource(resourceID);
 
         RelativeLayout.LayoutParams imageViewLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         imageViewLayoutParams.setMargins((int)x, (int)y, 0, 0);
@@ -123,9 +123,9 @@ public class MainActivity extends Activity
         layout.addView(imagen);
         return imagen;
     }
-    public ImageView crearImagenClickeable(int id, double x, double y)
+    public ImageView crearImagenClickeable(int imageID, int resourceID, double x, double y)
     {
-        ImageView imagen = crearImagen(id, x, y);
+        ImageView imagen = crearImagen(imageID, resourceID, x, y);
         imagen.setOnClickListener(viewOnClickListener);
         return imagen;
     }
@@ -134,7 +134,6 @@ public class MainActivity extends Activity
         @Override
         public void onClick(View v)
         {
-            textView.setText("ID: " + String.valueOf(v.getId()) + " clicked");
             vista.click(v.getId());
         }};
 

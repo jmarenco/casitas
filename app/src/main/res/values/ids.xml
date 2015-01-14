@@ -4,4 +4,7 @@
     <item type="id" name="image_id" />
     <item type="id" name="text_id" />
     <item type="id" name="checkbox_id" />
+    <item type="id" name="previous_id" />
+    <item type="id" name="restart_id" />
+    <item type="id" name="next_id" />
 </resources>
