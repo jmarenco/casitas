@@ -4,13 +4,14 @@ public class NivelFactory
 {
     public static int maxNiveles()
     {
-        return 2;
+        return 3;
     }
 
     public static Nivel getNivel(int nivel)
     {
         if( nivel == 1 ) return getNivel1();
         if( nivel == 2 ) return getNivel2();
+        if( nivel == 3 ) return getNivel3();
 
         return null;
     }
@@ -31,6 +32,20 @@ public class NivelFactory
     private static Nivel getNivel2()
     {
         Nivel ret = new Nivel(2);
+
+        ret.addEmpresa(new Empresa(Empresa.Tipo.Luz, 20, 50));
+        ret.addEmpresa(new Empresa(Empresa.Tipo.Gas, 200, 90));
+        ret.addCasita(construirCasita(80, 90, "LG"));
+        ret.addCasita(construirCasita(60, 170, "G"));
+        ret.addCasita(construirCasita(150, 240, "LG"));
+        ret.addCasita(construirCasita(140, 50, "LG"));
+
+        return ret;
+    }
+
+    private static Nivel getNivel3()
+    {
+        Nivel ret = new Nivel(3);
 
         ret.addEmpresa(new Empresa(Empresa.Tipo.Luz, 20, 60));
         ret.addEmpresa(new Empresa(Empresa.Tipo.Gas, 200, 90));
