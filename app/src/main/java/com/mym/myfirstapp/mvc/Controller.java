@@ -11,6 +11,9 @@ public class Controller
     // Activity principal
     private MainActivity _activity;
 
+    // Número de nivel actual
+    private static int _numeroNivel = 1;
+
     // Nivel actual
     private Nivel _nivel;
 
@@ -31,7 +34,7 @@ public class Controller
     public Controller(MainActivity activity)
     {
         _activity = activity;
-        _nivel = NivelFactory.getNivel1();
+        _nivel = NivelFactory.getNivel(_numeroNivel);
     }
 
     // Getters
@@ -105,5 +108,25 @@ public class Controller
         }
 
         return ret;
+    }
+
+    // Cambio de nivel
+    public void nivelAnterior()
+    {
+        if( _numeroNivel > 1 )
+            _numeroNivel -= 1;
+
+        _activity.nuevoNivel();
+    }
+    public void nivelSiguiente()
+    {
+        if( _numeroNivel < NivelFactory.maxNiveles() )
+            _numeroNivel += 1;
+
+        _activity.nuevoNivel();
+    }
+    public void reiniciar()
+    {
+        _activity.nuevoNivel();
     }
 }

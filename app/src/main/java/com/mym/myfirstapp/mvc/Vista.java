@@ -207,6 +207,22 @@ public class Vista
     // Muestra el mensaje de nivel terminado
     public void terminarNivel()
     {
-        _activity.mostrarTexto("Nivel terminado!");
+        _activity.crearImagen(R.drawable.welldone200, _anchoDisplay/2 - 100, _alturaDisplay/2 - 50);
+        _activity.crearImagenClickeable(R.drawable.previous60, _anchoDisplay/2 - 50, _alturaDisplay/2 + 50);
+        _activity.crearImagenClickeable(R.drawable.restart60, _anchoDisplay/2, _alturaDisplay/2 + 50);
+        _activity.crearImagenClickeable(R.drawable.next60, _anchoDisplay/2 + 50, _alturaDisplay/2 + 50);
+    }
+
+    // Reacciona ante clicks en imágenes
+    public void click(int id)
+    {
+        if( id == R.drawable.previous60 )
+            _controller.nivelAnterior();
+
+        if( id == R.drawable.next60 )
+            _controller.nivelSiguiente();
+
+        if( id == R.drawable.restart60 )
+            _controller.reiniciar();
     }
 }
