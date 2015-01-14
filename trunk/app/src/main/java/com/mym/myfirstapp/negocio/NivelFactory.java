@@ -19,7 +19,7 @@ public class NivelFactory
     {
         Nivel ret = new Nivel(1);
 
-        ret.addEmpresa(new Empresa(Empresa.Tipo.Luz, 20, 20));
+        ret.addEmpresa(new Empresa(Empresa.Tipo.Luz, 20, 50));
         ret.addEmpresa(new Empresa(Empresa.Tipo.Gas, 200, 90));
         ret.addCasita(construirCasita(60, 70, "LG"));
         ret.addCasita(construirCasita(160, 170, "G"));
@@ -32,7 +32,7 @@ public class NivelFactory
     {
         Nivel ret = new Nivel(2);
 
-        ret.addEmpresa(new Empresa(Empresa.Tipo.Luz, 20, 20));
+        ret.addEmpresa(new Empresa(Empresa.Tipo.Luz, 20, 60));
         ret.addEmpresa(new Empresa(Empresa.Tipo.Gas, 200, 90));
         ret.addEmpresa(new Empresa(Empresa.Tipo.Telefono, 170, 20));
         ret.addCasita(construirCasita(60, 70, "LG"));

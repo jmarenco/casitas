@@ -93,20 +93,31 @@ public class Vista
     {
         for(Empresa empresa: _nivel.getEmpresas())
         {
-            ImageView imagen = _activity.crearImagen(empresa.getID(), convX(empresa), convY(empresa));
-            _activity.crearImagen(empresa.getIdActivo(), convX(empresa)+30, convY(empresa)+30);
+            ImageView imagen = _activity.crearImagen(R.id.image_id, empresa.getID(), convX(empresa), convY(empresa));
+            _activity.crearImagen(R.id.image_id, empresa.getIdActivo(), convX(empresa)+30, convY(empresa)+30);
 
             _imagenes.put(empresa, imagen);
         }
 
         for(Casita casita: _nivel.getCasitas())
         {
-            ImageView imagen = _activity.crearImagen(casita.getID(), convX(casita), convY(casita));
+            ImageView imagen = _activity.crearImagen(R.id.image_id, casita.getID(), convX(casita), convY(casita));
             _imagenes.put(casita, imagen);
 
             for(Empresa.Tipo tipo: casita.getNecesidades())
                 dibujarServicio(casita, _nivel.getEmpresa(tipo));
         }
+
+        _activity.crearImagenClickeable(R.id.restart_id, R.drawable.restart60, 5, 5);
+    }
+
+    // Muestra el servicio conectado en la casita
+    public void dibujarServicio(Casita casita, Empresa empresa)
+    {
+        int id = casita.getServicio(empresa.getTipo()) ? empresa.getIdActivo() : empresa.getIdInactivo();
+        int numero = casita.getNecesidades().indexOf(empresa.getTipo());
+
+        _activity.crearImagen(R.id.image_id, id, convX(casita) + 10 + numero * 12, convY(casita) + 35);
     }
 
     // Convierte unidades del modelo a unidades en el display
@@ -168,15 +179,6 @@ public class Vista
         _imageView.invalidate();
     }
 
-    // Muestra el servicio conectado en la casita
-    public void dibujarServicio(Casita casita, Empresa empresa)
-    {
-        int id = casita.getServicio(empresa.getTipo()) ? empresa.getIdActivo() : empresa.getIdInactivo();
-        int numero = casita.getNecesidades().indexOf(empresa.getTipo());
-
-        _activity.crearImagen(id, convX(casita) + 10 + numero * 12, convY(casita) + 35);
-    }
-
     // Objeto que incluye al punto (en coordenadas del display)
     @TargetApi(11)
     public Objeto objetoSeleccionado(float x, float y)
@@ -207,22 +209,22 @@ public class Vista
     // Muestra el mensaje de nivel terminado
     public void terminarNivel()
     {
-        _activity.crearImagen(R.drawable.welldone200, _anchoDisplay/2 - 100, _alturaDisplay/2 - 50);
-        _activity.crearImagenClickeable(R.drawable.previous60, _anchoDisplay/2 - 50, _alturaDisplay/2 + 50);
-        _activity.crearImagenClickeable(R.drawable.restart60, _anchoDisplay/2, _alturaDisplay/2 + 50);
-        _activity.crearImagenClickeable(R.drawable.next60, _anchoDisplay/2 + 50, _alturaDisplay/2 + 50);
+        _activity.crearImagen(R.id.image_id, R.drawable.welldone400, _anchoDisplay/2 - 150, _alturaDisplay/2 - 50);
+        _activity.crearImagenClickeable(R.id.previous_id,  R.drawable.previous60, _anchoDisplay/2 - 50, _alturaDisplay/2 + 70);
+        _activity.crearImagenClickeable(R.id.restart_id, R.drawable.restart60, _anchoDisplay/2, _alturaDisplay/2 + 70);
+        _activity.crearImagenClickeable(R.id.next_id, R.drawable.next60, _anchoDisplay/2 + 50, _alturaDisplay/2 + 70);
     }
 
     // Reacciona ante clicks en imágenes
     public void click(int id)
     {
-        if( id == R.drawable.previous60 )
+        if( id == R.id.previous_id )
             _controller.nivelAnterior();
 
-        if( id == R.drawable.next60 )
-            _controller.nivelSiguiente();
-
-        if( id == R.drawable.restart60 )
+        if( id == R.id.restart_id )
             _controller.reiniciar();
+
+        if( id == R.id.next_id )
+            _controller.nivelSiguiente();
     }
 }
