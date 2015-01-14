@@ -2,9 +2,35 @@ package com.mym.myfirstapp.negocio;
 
 public class NivelFactory
 {
-    public static Nivel getNivel1()
+    public static int maxNiveles()
+    {
+        return 2;
+    }
+
+    public static Nivel getNivel(int nivel)
+    {
+        if( nivel == 1 ) return getNivel1();
+        if( nivel == 2 ) return getNivel2();
+
+        return null;
+    }
+
+    private static Nivel getNivel1()
     {
         Nivel ret = new Nivel(1);
+
+        ret.addEmpresa(new Empresa(Empresa.Tipo.Luz, 20, 20));
+        ret.addEmpresa(new Empresa(Empresa.Tipo.Gas, 200, 90));
+        ret.addCasita(construirCasita(60, 70, "LG"));
+        ret.addCasita(construirCasita(160, 170, "G"));
+        ret.addCasita(construirCasita(150, 240, "LG"));
+
+        return ret;
+    }
+
+    private static Nivel getNivel2()
+    {
+        Nivel ret = new Nivel(2);
 
         ret.addEmpresa(new Empresa(Empresa.Tipo.Luz, 20, 20));
         ret.addEmpresa(new Empresa(Empresa.Tipo.Gas, 200, 90));

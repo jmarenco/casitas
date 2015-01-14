@@ -1,6 +1,7 @@
 package com.mym.myfirstapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ public class MainActivity extends Activity
 
         // Creamos el controller y la vista
         controller = new Controller(this);
-        final Vista vista = new Vista(controller);
+        vista = new Vista(controller);
 
         // Creamos el relative layout
         layout = new RelativeLayout(MainActivity.this);
@@ -92,6 +93,7 @@ public class MainActivity extends Activity
     }
 
     private Controller controller;
+    private Vista vista;
     private RelativeLayout layout;
     private TextView textView;
 
@@ -117,9 +119,14 @@ public class MainActivity extends Activity
         RelativeLayout.LayoutParams imageViewLayoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         imageViewLayoutParams.setMargins((int)x, (int)y, 0, 0);
         imagen.setLayoutParams(imageViewLayoutParams);
-//        imagen.setOnClickListener(viewOnClickListener);
 
         layout.addView(imagen);
+        return imagen;
+    }
+    public ImageView crearImagenClickeable(int id, double x, double y)
+    {
+        ImageView imagen = crearImagen(id, x, y);
+        imagen.setOnClickListener(viewOnClickListener);
         return imagen;
     }
 
@@ -128,11 +135,19 @@ public class MainActivity extends Activity
         public void onClick(View v)
         {
             textView.setText("ID: " + String.valueOf(v.getId()) + " clicked");
+            vista.click(v.getId());
         }};
 
     // Auxiliar para el debug
     public void mostrarTexto(String texto)
     {
         textView.setText(texto);
+    }
+
+    // Inicia otra activity con el próximo nivel
+    public void nuevoNivel()
+    {
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }
