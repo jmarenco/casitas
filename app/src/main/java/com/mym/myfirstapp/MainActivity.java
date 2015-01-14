@@ -39,6 +39,13 @@ public class MainActivity extends Activity
         LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         layout.setLayoutParams(layoutParams);
 
+        // Fondo de pantalla
+        // ImageView fondo = new ImageView(MainActivity.this);
+        // fondo.setId(R.id.image_id);
+        // fondo.setImageResource(R.drawable.pasto1024x768);
+        // fondo.setScaleType(ImageView.ScaleType.FIT_XY);
+        // layout.addView(fondo);
+
         // Creamos un canvas para dibujar
         Bitmap bitmap = Bitmap.createBitmap((int)getAnchoDisplay(), (int)getAlturaDisplay(), Bitmap.Config.ARGB_8888);
 
@@ -77,8 +84,7 @@ public class MainActivity extends Activity
                 float x = event.getX();
                 float y = event.getY();
 
-                textView.setText("Real: (" + format.format(x) + ", " + format.format(y) + ")" +
-                                 "- Virtual: (" + format.format(vista.pointX(x)) + ", " + format.format(vista.pointY(y)) + ")");
+                // textView.setText("Real: (" + format.format(x) + ", " + format.format(y) + ")" + "- Virtual: (" + format.format(vista.pointX(x)) + ", " + format.format(vista.pointY(y)) + ")");
 
                 if (event.getAction() == MotionEvent.ACTION_DOWN)
                     controller.inicioDrag(x, y);

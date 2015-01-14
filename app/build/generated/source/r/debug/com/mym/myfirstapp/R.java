@@ -1311,16 +1311,17 @@ containing a value of this type.
         public static final int luz20off=0x7f02003c;
         public static final int next=0x7f02003d;
         public static final int next60=0x7f02003e;
-        public static final int previous=0x7f02003f;
-        public static final int previous60=0x7f020040;
-        public static final int restart=0x7f020041;
-        public static final int restart60=0x7f020042;
-        public static final int telefono=0x7f020043;
-        public static final int telefono20=0x7f020044;
-        public static final int telefono20off=0x7f020045;
-        public static final int welldone=0x7f020046;
-        public static final int welldone200=0x7f020047;
-        public static final int welldone400=0x7f020048;
+        public static final int pasto1024x768=0x7f02003f;
+        public static final int previous=0x7f020040;
+        public static final int previous60=0x7f020041;
+        public static final int restart=0x7f020042;
+        public static final int restart60=0x7f020043;
+        public static final int telefono=0x7f020044;
+        public static final int telefono20=0x7f020045;
+        public static final int telefono20off=0x7f020046;
+        public static final int welldone=0x7f020047;
+        public static final int welldone200=0x7f020048;
+        public static final int welldone400=0x7f020049;
     }
     public static final class id {
         public static final int action_bar=0x7f080038;
