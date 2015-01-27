@@ -17,8 +17,9 @@ public class Controller
     // Nivel actual
     private Nivel _nivel;
 
-    // Vista
+    // Vista y sonido
     private Vista _vista;
+    private Sound _sound;
 
     // Empresa seleccionada
     private Empresa _seleccionada = null;
@@ -35,6 +36,7 @@ public class Controller
     {
         _activity = activity;
         _nivel = NivelFactory.getNivel(_numeroNivel);
+        _sound = new Sound(activity);
     }
 
     // Getters
@@ -80,11 +82,10 @@ public class Controller
             if( _vista.segmentoLibre(_lastx, _lasty, x, y) )
                 _vista.dibujar(_lastx, _lasty, x, y);
 
-            if( asignarServicio(x, y) == false )
-                _vista.restaurarBitmap();
+            verificarConexion(x, y);
 
             if( _nivel.terminado() )
-                _vista.terminarNivel();
+                terminarNivel();
         }
 
         _seleccionada = null;
@@ -94,7 +95,7 @@ public class Controller
     }
 
     // Si hay una casa en la ubicación actual, le asigna el servicio de la empresa seleccionada
-    private boolean asignarServicio(float x, float y)
+    private boolean verificarConexion(float x, float y)
     {
         boolean ret = false;
         Casita casita = _vista.casitaSeleccionada(x, y);
@@ -104,10 +105,27 @@ public class Controller
             casita.setServicio(_seleccionada.getTipo());
             _vista.dibujarServicio(casita, _seleccionada);
 
+            if( _nivel.terminado() == false )
+                _sound.asignarServicio();
+
             ret = true;
         }
 
+        // Si no había una casa, deshace el último cableado
+        if( ret == false )
+        {
+            _vista.restaurarBitmap();
+            _sound.advertirError();
+        }
+
         return ret;
+    }
+
+    // Finalización exitosa del nivel
+    private void terminarNivel()
+    {
+        _vista.terminarNivel();
+        _sound.felicitar();
     }
 
     // Cambio de nivel
