@@ -20,6 +20,7 @@ public class Empresa extends Objeto
         super(R.drawable.industria60, x, y);
         _tipo = tipo;
 
+        // Setea los ids de los dibujos en función del tipo de empresa
         switch(tipo)
         {
             case Luz: _idActivo = R.drawable.luz20; _idInactivo = R.drawable.luz20off; break;

@@ -36,7 +36,7 @@ public class Controller
     {
         _activity = activity;
         _nivel = NivelFactory.getNivel(_numeroNivel);
-        _sound = new Sound(activity);
+        _sound = new Sound(_activity);
     }
 
     // Getters
